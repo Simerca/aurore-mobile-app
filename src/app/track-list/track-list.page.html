@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <img src="../../assets/logoaurore.png" style="max-height:50px;">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-item *ngFor="let order of myOrders">
+        <ion-label >{{order.id}}</ion-label>
+        <ion-button *ngIf="order.state != 2" [routerLink]="['/track']" [queryParams]="{orderId:order.id}" expand="block" fill="clear" shape="round">
+          Track
+        </ion-button>
+      </ion-item>
+    </ion-list>
+</ion-content>

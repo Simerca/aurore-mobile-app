@@ -1,0 +1,8 @@
+{
+  "name": "ionic-form-ui",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "8bd34bcc"
+}

@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <img src="../../assets/logoaurore.png" style="max-height:50px;">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <ion-col size="12" class="ion-text-center">
+        <h2><b>Vos informations personelles</b></h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12">
+      <form>
+        <ion-item>
+          <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required #email type="text" value="{{ account.Email }}" disabled="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Nom
+          </ion-label>
+          <ion-input required #lastName type="text" value="{{ account.LastName }}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Prenom
+          </ion-label>
+          <ion-input required #firstName type="text" value="{{ account.FirstName }}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Téléphone
+          </ion-label>
+          <ion-input required #phone type="text" value="{{ account.Phone }}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Adresse
+          </ion-label>
+          <ion-input required #address type="text" value="{{ account.AddressLine1 }}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Adresse Complémentaire
+          </ion-label>
+          <ion-input required #addressLine2 type="text" value="{{ account.AddressLine2 }}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Code Postal
+          </ion-label>
+          <ion-input required #codePostal type="text" value="{{ account.PostalCode }}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Ville
+          </ion-label>
+            <ion-input required #city type="text" value="{{ account.City }}"></ion-input>
+        </ion-item>
+
+            <ion-button (click)="updateAccount(email,address,codePostal,firstName,lastName,city,phone, addressLine2)" expand="full" color="primary">
+              Mettre à jours
+            </ion-button>
+      </form>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <img src="../../assets/logoaurore.png" style="max-height:50px;">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid fixed>
+      <ion-row>
+        <!-- Titre -->
+        <ion-col size="12">
+          <h3>Récapitulatif de votre commande</h3>
+        </ion-col>
+        <ion-col size="12">
+
+              <ion-row *ngFor="let item of cartList">
+                <ion-col style="margin: auto;" size="2">x {{item.cart.qty}}</ion-col>
+                <ion-col style="margin: auto;" size="6">{{ item.data.name }}</ion-col>
+                
+                <ion-col style="margin: auto;"  size="2"><ion-button size="small" (click)="remToCart(item.cart.id)" expand="block" color="danger">
+                 <h5><ion-icon name="close-outline"></ion-icon></h5>
+                </ion-button></ion-col>
+
+                <ion-col style="margin: auto;"  size="2"><ion-button size="small" (click)="addToCart(item.cart.id)" expand="block" color="primary">
+                  <h5><ion-icon name="add-outline"></ion-icon></h5>
+                </ion-button></ion-col>
+                
+              </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">Votre point de livraison</ion-col>
+      <ion-col size="12">
+        <div id='mapConfirmOrder' style='width: 100%; height: 15vh;'></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid fixed>
+  <ion-row>
+
+    <ion-col size="12">
+      <h3>Vous aimerez aussi dans ce magasin</h3>
+    </ion-col>
+
+      
+    <ion-card *ngFor="let item of itemsShop" class="items-card" >
+      <ion-card-content class="card-content">
+        <ion-grid style="padding: 0px;">
+          <ion-row style="padding:0px">
+            <ion-col [ngStyle]="{'background-image': 'url(' + item.img + ')', 'background-size':'cover'}" size="3">
+            </ion-col>
+            <ion-col style="padding:0px 0px 0px 5px;" size="7">
+              <i style=" font-size: 0.8em;"> {{ item.shopName }} - {{ item.shopAdress }}  à {{ item.distance }} km</i><br>
+              <b> {{ item.name }} </b><br>
+              <ion-badge color="warning">{{ item.categorie }}</ion-badge><br>
+              <ion-text color="primary">
+                <b>{{ item.price }} € {{ item.priceSuffix }}</b>
+              </ion-text> 
+            </ion-col>
+            <ion-col style="padding:0px" size="2">
+                <!-- <ion-button [routerLink]="['/mapbox']" [queryParams]="{ lnt: item.lnt, lat: item.lat }" expand="full" color="success">Voir sur la carte</ion-button> -->
+                <ion-button class="button-add-cart" (click)="addToCart(item.id)" expand="full" color="primary"><h1>+</h1></ion-button>
+              </ion-col>
+              <!-- 
+              <ion-col size="12">
+                  <ion-button (click)="setMarker(item.lnt,item.lat)" expand="full" color="success">GPS</ion-button>
+                 <ion-button [routerLink]="['/confirm-order']" expand="full" color="success">Ajouter au sac</ion-button>
+                </ion-col>
+              -->
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+</ion-row>
+
+</ion-grid>
+  
+
+
+</ion-content>
+
+    <ion-footer style="background:#048b9a;color:white">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="ion-text-center"  style="background:#ffffff;">
+            <ion-checkbox [(ngModel)]="aurorWithTree" (ionChange)="updatePriceAuroreWithTree()" color="primary"></ion-checkbox>
+            <ion-label style="margin-left:5px;font-size:0.8em;">0,10 € pour replanter un arbre<br> (Programme Aurore With Tree)</ion-label>
+            <img style="max-height:100%" src="../../assets/aurorewithtreebutton.png" />
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="8" >
+          <ion-item>
+            <ion-note slot="start" color="white">Produits</ion-note>
+                  <ion-label>{{ totalPrice }} €</ion-label>
+          </ion-item>
+        <ion-item>
+          <ion-note slot="start" color="white">Livraison</ion-note>
+                <ion-label>{{ totalShippingPrice }} € ({{ distanceToItem }}km)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-note slot="start" color="white">Total</ion-note>
+                <ion-label>{{ totalCost }} €</ion-label>
+        </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-row style="height:100%">
+              <!-- <ion-col style="height:100%" size="6">
+                
+                  <ion-button style="height:100%" (click)="onPay()" disabled={{paymentOk}} expand="full" color="secondary">Paypal</ion-button>
+              
+              </ion-col> -->
+              <!-- <ion-col size="12">
+                
+                  <ion-button (click)="psCreateToken()" expand="full" color="primary">Payer par PS</ion-button>
+              
+              </ion-col> -->
+              <ion-col size="12">
+                
+                  <ion-button style="height:100%" (click)="presentModal()" disabled={{paymentOk}} expand="full" color="dark">Paiement</ion-button>
+              
+              </ion-col>
+            </ion-row>
+        </ion-col>
+      </ion-row>
+      
+    </ion-footer>
+
+

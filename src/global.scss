@@ -1,0 +1,70 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+
+    --ion-font-family:  'Montserrat', sans-serif!important;
+    --ion-toolbar-background: #048b9a;
+    --progress-background: #048b9a!important;
+    --ion-color-primary	:#048b9a;
+}
+
+ion-footer {
+    background:#ffffff;
+}
+
+ion-progress-bar {
+    --progress-background: #048b9a;
+  }
+
+  .shopMarker, .delivMarker, .userMarker 
+{
+  width: 90px;
+  height: 90px;
+}
+.shopMarker {
+    background-image: url('./assets/pinshop.png');
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  .delivMarker {
+    background-image: url('./assets/pindelivman.png');
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  .userMarker {
+    background-image: url('./assets/pinclient.png');
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  .sc-ion-buttons-md-s .button {
+    color:#ffffff;
+  }

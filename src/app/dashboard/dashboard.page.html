@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <img src="../../assets/logoaurore.png" style="max-height:50px;">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="mapIsLoading" class="loadingZone">
+  <ion-spinner name="circles" class="loadingSpinner"></ion-spinner> 
+</ion-content>
+
+<ion-content>
+  
+  <div id='map' style='position:fixed; top:0px; left:0px;width: 100%; height: 100vh!important;'></div>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-searchbar [(ngModel)]="searchValue"  (search)="getItems()" placeholder="Couches, boissons, medicaments ...etc"></ion-searchbar>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button type="submit" (click)="getItems()" expand="full" color="primary" disabled={{searchInProgress}}>Rechercher <ion-ripple-effect></ion-ripple-effect></ion-button>
+      </ion-col>
+      <!-- <ion-col size="12" class="text-center">
+        <ion-spinner *ngIf="loading" name="circles"></ion-spinner>
+      </ion-col> -->
+    </ion-row>
+
+    <!-- Skeleton screen -->
+    <div *ngIf="searchInProgress">
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+
+    <ion-row *ngIf="showPanelSearch">
+      
+        <ion-card *ngFor="let item of itemsList" class="items-card" >
+          <ion-card-content class="card-content">
+            <ion-grid style="padding: 0px;">
+              <ion-row style="padding:0px">
+                <ion-col [ngStyle]="{'background-image': 'url(' + item.img + ')', 'background-size':'cover'}" size="3">
+                </ion-col>
+                <ion-col style="padding:0px 0px 0px 5px;" size="7">
+                  <i style=" font-size: 0.8em;"> {{ item.shopName }} - {{ item.shopAdress }}  à {{ item.distance }} km</i><br>
+                  <b> {{ item.name }} </b><br>
+                  <ion-badge color="warning">{{ item.categorie }}</ion-badge><br>
+                  <ion-text color="primary">
+                    <b>{{ item.price }} € {{ item.priceSuffix }}</b>
+                  </ion-text> 
+                </ion-col>
+                <ion-col style="padding:0px" size="2">
+                    <!-- <ion-button [routerLink]="['/mapbox']" [queryParams]="{ lnt: item.lnt, lat: item.lat }" expand="full" color="success">Voir sur la carte</ion-button> -->
+                    <ion-button class="button-add-cart" (click)="addCart(item.id,item.shopId)" expand="full" color="primary"><h1>+</h1></ion-button>
+                  </ion-col>
+                  <!-- 
+                  <ion-col size="12">
+                      <ion-button (click)="setMarker(item.lnt,item.lat)" expand="full" color="success">GPS</ion-button>
+                     <ion-button [routerLink]="['/confirm-order']" expand="full" color="success">Ajouter au sac</ion-button>
+                    </ion-col>
+                  -->
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+    </ion-row>
+<!-- 
+    <ion-row *ngIf="hideMe">
+      <ion-col size="6" *ngFor="let cat of ProductCategoryList">
+        <ion-card>
+          <img src="./assets/background-home.jpg" />
+        <ion-card-header>
+          <ion-card-title>{{ cat.name }}</ion-card-title>
+        </ion-card-header>
+        
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  -->
+  </ion-grid>
+</ion-content>

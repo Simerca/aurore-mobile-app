@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <img src="../../assets/logoaurore.png" style="max-height:50px;">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="mapIsLoading" class="loadingZone">
+  <ion-spinner name="circles" class="loadingSpinner"></ion-spinner> 
+</ion-content>
+
+<ion-content>
+
+  <div id='mapDelivman' style='position:fixed; top:0px; left:0px;width: 100%; height: 100vh!important;'></div>
+
+
+  <ion-card *ngFor="let order of orders">
+    <ion-card-content>
+      <ion-text color="danger">
+        <h3>Vous avez une nouvelle commande</h3>
+      </ion-text>
+      <ion-row>
+        <ion-col size="8">
+          Distance : <b>{{order.distance}}km</b><br>
+          Temp estimé : <b>{{order.distance * 3.45}} min</b>
+        </ion-col>
+        <ion-col size="4">
+          <h1><b>{{order.shippingGain}}€</b></h1>
+        </ion-col>
+        <ion-col size="12">
+          <ion-button (click)="getAnOrder(order.id)" expand="block" color="dark">
+            Je prend
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      
+      <ion-row>
+        <!-- Avatar -->
+        <ion-col size="12" class="ion-text-center">
+          <img src="" />
+        </ion-col>
+
+        <!-- Nom prenom et bienvenue -->
+        <ion-col size="12" class="ion-text-center">
+          <h2><b>Bonjour Imahd .S</b></h2>
+        </ion-col>
+
+        <!-- Total des gains -->
+        <ion-col size="12" class="ion-text-center">
+          Total de vos gains aujourd'hui<br>
+          <ion-text color="success">
+            <h1>107.90€</h1>
+          </ion-text>
+        </ion-col>
+
+        <!-- Bouton je suis dispo -->
+        <ion-col size="12">
+          <ion-button color="dark" expand="full">
+            Je suis dispo
+          </ion-button>
+        </ion-col>
+
+        <!-- Bouton je m arrete -->
+        <ion-col size="12">
+          <ion-button expand="full" color="dark">
+            Je m'arrete
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <h2>Vos 3 dernieres commandes</h2>
+
+      <ion-row>
+              <ion-col size="8">
+                stars<br>
+                3,2km - 11 minutes
+              </ion-col>
+              <ion-col size="4" class="ion-text-right">
+                <h1>7,44€</h1>
+              </ion-col>
+              <ion-col size="12">
+                <hr>
+              </ion-col>
+          </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Créer un compte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>    
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" #email required></ion-input>
+    </ion-item> 
+
+    <ion-item lines="full">
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password" #password required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input [(ngModel)]="userForm.LastName" [ngModelOptions]="{standalone: true}" #LastName type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Prenom</ion-label>
+      <ion-input [(ngModel)]="userForm.FirstName" [ngModelOptions]="{standalone: true}" #FirstName type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Adresse</ion-label>
+      <ion-input [(ngModel)]="userForm.AddressLine1" [ngModelOptions]="{standalone: true}" #AddressLine1 type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Adresse Complémentaire</ion-label>
+      <ion-input [(ngModel)]="userForm.AddressLine2" [ngModelOptions]="{standalone: true}" #AddressLine2 type="text"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Code Postal</ion-label>
+      <ion-input [(ngModel)]="userForm.PostalCode" [ngModelOptions]="{standalone: true}" #PostalCode type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Ville</ion-label>
+      <ion-input [(ngModel)]="userForm.City" [ngModelOptions]="{standalone: true}" #City type="text" required></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col> 
+      <ion-button type="submit" (click)="signUp(email, password)" expand="block">S'enregistrer</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

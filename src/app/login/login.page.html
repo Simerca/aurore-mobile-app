@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Se connecter</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="auth-form">
+
+  <ion-grid fixed class="dark">
+    <ion-row>
+      <ion-col size="12" class="logo-block">
+        <img class="logo" src="../assets/logoaurore.png" />
+      </ion-col>
+    <ion-col size="12" class="logo-block">
+      <form>    
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" #email required></ion-input>
+    </ion-item> 
+
+    <ion-item lines="full">
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password" #password required></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col> 
+      <ion-button type="submit" (click)="logIn(email, password)" expand="block">Se connecter</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col> 
+        <ion-button [routerLink]="['/password-lost']" expand="block">Mot de passe oublié</ion-button>
+      </ion-col>
+    </ion-row>
+<!-- 
+    <span class="divider line one-line">ou</span> -->
+
+    <!-- <ion-row>
+      <ion-col> 
+        <ion-button 
+         type="submit" 
+         color="danger"
+         (click)="authService.GoogleAuth()" 
+         expand="block">
+           Se connecter avec Google
+        </ion-button>
+      </ion-col>
+    </ion-row> -->
+
+  </form>
+</ion-col>
+
+</ion-row>
+</ion-grid>
+</ion-content>

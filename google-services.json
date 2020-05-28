@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "165847455608",
+    "firebase_url": "https://ineed-2241f.firebaseio.com",
+    "project_id": "ineed-2241f",
+    "storage_bucket": "ineed-2241f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165847455608:android:1d4ac0c5865c8f4a58da8d",
+        "android_client_info": {
+          "package_name": "app.aurore.ayrton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165847455608-lljf0agpu48oeg7vk8ka72875b05reu1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsnFQcf48y6Dh2v-JYzOeJZOMnpo1p-ic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165847455608-lljf0agpu48oeg7vk8ka72875b05reu1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "165847455608-shailtsia27b7gj12mi8sl3pr6b926a1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tech.joudi.com"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165847455608:android:cdb308764e4331d858da8d",
+        "android_client_info": {
+          "package_name": "tech.joudi.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165847455608-lljf0agpu48oeg7vk8ka72875b05reu1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsnFQcf48y6Dh2v-JYzOeJZOMnpo1p-ic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165847455608-lljf0agpu48oeg7vk8ka72875b05reu1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "165847455608-shailtsia27b7gj12mi8sl3pr6b926a1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tech.joudi.com"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

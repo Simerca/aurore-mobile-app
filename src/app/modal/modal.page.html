@@ -1,0 +1,54 @@
+
+
+<ion-content>
+  
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Vos mode de paiement</ion-label>
+    </ion-list-header>
+    <ion-item  *ngFor="let paymentMethod of paymentMethods">
+      <ion-button (click)="doAction(paymentMethod.type)" expand="block" color="primary"><img style="height: 16px;" [src]="paymentMethod.icon"  /> - {{ paymentMethod.name }}</ion-button>
+    </ion-item>
+    
+  </ion-list>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12"></ion-col>
+      <ion-col size="12">
+        <ion-card>
+          <ion-list>
+            <ion-item (click)="createDirectPayIn(card.Id)" *ngFor="let card of cardListView">
+              <ion-label><img style="height: 16px;" src="../../assets/credit-card-solid.svg"  /> - Votre carte bancaire : <br> {{ card.Alias }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+    <ion-content *ngIf="addingCard">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12">
+            <ion-label>Numéro de carte</ion-label>
+            <ion-input type="number" [(ngModel)]="card.number" placeholder="ex:4972..."></ion-input>
+          </ion-col>
+          <ion-col size="6">
+            <ion-label>Expire le</ion-label>
+            <ion-input type="number" [(ngModel)]="card.expiry" placeholder="ex:12/22"></ion-input>
+          </ion-col>
+          <ion-col size="6">
+            <ion-label>CCV</ion-label>
+            <ion-input type="number" [(ngModel)]="card.ccv" placeholder="ex:333"></ion-input>
+          </ion-col>
+          <ion-col size="12">
+            <ion-button (click)="cardRegistration()" expand="full" fill="solid" color="primary">
+              Ajouter ma carte
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>

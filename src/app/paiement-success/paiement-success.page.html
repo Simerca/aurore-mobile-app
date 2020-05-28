@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <img src="../../assets/logoaurore.png" style="max-height:50px;">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row  class="ion-padding">
+      <ion-col size="12" class="ion-text-center">
+        <h1>Paiement accepté</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row  class="ion-padding" class="ion-text-center">
+      <ion-col size="12">
+        Votre paiement à bien été accepté.
+      </ion-col>
+      <ion-col size="12">
+        <h1><ion-icon color="success" name="checkmark-circle-outline"></ion-icon></h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-content>
+          <ion-grid fixed>
+            <ion-row>
+        <ion-col size="12" class="ion-text-center">
+          <h1><b>Votre reçu</b></h1>
+        </ion-col>
+        <ion-col size="12">
+          <ion-list>
+            <ion-item *ngFor="let item of cartItem">
+              <ion-note slot="start">x {{ item.cart.qty }}</ion-note>
+              <ion-label> {{ item.product.name }}</ion-label>
+              <ion-label slot="end" class="ion-text-right" > {{ item.product.price * item.cart.qty }} €</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="12" class="ion-text-center">
+          <h1>Total Livraison <br></h1>
+          <h1 color="success">{{ totalShipping }} €</h1>
+        </ion-col>
+        <ion-col size="12" class="ion-text-center">
+          <h1>Montant Total <br></h1>
+          <h1 color="success">{{ totalAmount }} €</h1>
+        </ion-col>
+
+        
+        </ion-row>
+      </ion-grid> 
+    </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-col size="12">
+        <ion-button [routerLink]="['/track']" [queryParams]="{orderId:orderId}" expand="full" color="dark">
+          Suivre ma commande
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
